@@ -1,3 +1,5 @@
+/*Aşağıdaki kod parçasının ekran çıktısı nasıl olmalıdır*/
+
 #include <stdio.h>
 
 int x;
@@ -10,7 +12,7 @@ void auto_sinif(void) {
 
 void register_sinif(void) {
     register char b = 'G';
-    printf("b nin degeri %c\n", b);
+    printf("b nin degeri %d\n", b);
     printf("-------------\n");
 }
 
@@ -24,6 +26,7 @@ void extern_sinif(void) {
 
 void static_sinif(void) {
     int i = 0;
+
     for (i = 1; i < 5; i++) {
         static int y = 5;
         int p = 10;

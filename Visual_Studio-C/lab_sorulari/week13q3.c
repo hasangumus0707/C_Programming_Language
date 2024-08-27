@@ -30,34 +30,3 @@ void binary(int number)
 
 
 
-/*Tekde çözemedim tekrar bak sindir
-
-
-#include <stdio.h>
-
-void ikilik(int);
-
-int main()
-{
-
-    int number;
-    printf("Lutfen bir sayi giriniz:");
-    scanf("%d", &number);
-
-    ikilik(number);
-
-    return 0;
-}
-
-void ikilik(int a){
-
-    if(a != 0 ){
-
-        ikilik(a/2);
-        printf("%d", a%2);
-    }
-    else{
-
-        return ;
-    }
-}*/

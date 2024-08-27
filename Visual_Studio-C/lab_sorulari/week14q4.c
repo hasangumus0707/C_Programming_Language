@@ -19,8 +19,9 @@ void main() {
   k = &m;
 
   printf("%.1f\n", *(*(k) - 1));
-  printf("%p\n", *k);
+  printf("\n%x\n", *k);
+  printf("\n%x\n", **k);
 
   m = &myArray[1];
-  printf("%p\n", m);
+  printf("\n\n%x\n", m);
 }

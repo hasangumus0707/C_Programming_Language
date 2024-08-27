@@ -1,3 +1,5 @@
+/*Aşağıdaki kod parçasının ekran çıktısı nasıl olmalıdır?*/
+
 #include <stdio.h>
 
 int x = 5;
