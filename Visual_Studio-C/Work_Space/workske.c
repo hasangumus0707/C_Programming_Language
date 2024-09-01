@@ -1,40 +1,109 @@
+/*ENTER tuşuna basılana kadar sürekli olarak klavyedengirilen karakterleri alan ve her bir karakter için ekrana ‘*’
+basan bir program yazınız.
+Kullanıcı ENTER tuşuna bastığı zaman girilen karakterleri girildiği sırada ekrana yazdırınız. ENTER için karakter kodu
+13’tür.
+*/
+
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
-int main() {
-    char matris[3][3];
-    int sifreliMetin[100];
-    char orijinalMetin[100];
-    int i, j, k = 0, sayi;
+void main()
+{
+    char *p;
+    int i = 0 , k;
 
-    // Şifreleme matrisini kullanıcıdan al
-    printf("Sifreleme matrisini girin (3x3):\n");
-    for (i = 0; i < 3; i++) {
-        for (j = 0; j < 3; j++) {
-            scanf(" %c", &matris[i][j]);
+    p = (char*)malloc(sizeof(char));
+
+    while(1)
+    {
+        *(p+i) = getch();
+
+        if(*(p+i) == 13)
+        {
+            break;
+        }
+        else
+        {
+            putchar('*');
+            i++;
+            p = (char*) realloc(p , (i+1) * sizeof(char) );
         }
     }
 
-    // Şifreli metni kullanıcıdan al
-    printf("Sifreli metni girin (boşlukla ayrilmis sayilar):\n");
-    i = 0;
-    while (scanf("%d", &sifreliMetin[i]) != EOF) {
-        i++;
+    printf("\n");
+
+    for( k = 0 ; k < i ; k++)
+    {
+        printf("%c", *(p+k));
     }
-
-    // Şifre çözme işlemi
-    for (i = 0; i < k; i++) {
-        sayi = sifreliMetin[i];
-        int satir = sayi / 10;
-        int sutun = sayi % 10;
-        orijinalMetin[i] = matris[satir - 1][sutun - 1];
-    }
-    orijinalMetin[i] = '\0';
-
-    // Orijinal metni ekrana yazdır
-    printf("Orijinal metin: %s\n", orijinalMetin);
-
-    return 0;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+    char giris[50];
+    char *p;
+    int i = 0 , k;
+    p = giris;
+
+    while(1)
+    {
+        *( p + i ) = getch();
+
+        if( *( p + i ) == 13)
+        {
+            break;
+        }
+
+        putchar('*');
+       // printf("  Adres[%d]: %d\n", i , p+i);
+        i++;
+    }
+    printf("\n");
+    for( k = 0 ; k < i ; k++ )
+    {
+        //printf("  Adres[%d]: %d\n", k , p+k);
+        putchar(*(p+k));
+    }
+
+    return 0;
+}*/
