@@ -48,13 +48,6 @@ while( *str != '\0')
 
 }
 
-if( k == '\0')
-{
-    return str;
-}
-else
-{
     return NULL;
-}
 
 }

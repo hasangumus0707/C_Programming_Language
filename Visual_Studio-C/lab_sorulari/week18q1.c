@@ -1,7 +1,7 @@
 /*Soru 1: Programlama dersindeki öğrenciler için kullanılacak ‘student’ isimli struct yapısını, ‘number’,
 ‘name’, ‘surname’, ‘midtermGrade’ ve ‘finalGrade’ alanlarından oluşacak şekilde tanımlayınız.
 
-Soru 2: Tanımladığınız bu yapıyı kullanarak 5 öğrenci için bir pointer dizişi oluşturun.
+Soru 2: Tanımladığınız bu yapıyı kullanarak 5 öğrenci için bir pointer dizisi oluşturun.
 Soru 3: 5 öğrenci için tanımladığınız pointer dizisi üzerinden ilgili bilgileri döngü kullanarak kullanıcıdan alınız.
 Soru 4: 5 öğrenciye ait vize ve final notu bilgilerini kullanarak ortalama yıl sonu notunu elde ediniz.
 Soru 5: Öğrenci dizisini isme göre sıralayınız.

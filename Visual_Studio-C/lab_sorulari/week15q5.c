@@ -3,6 +3,7 @@ ekrana yazdıran programın c kodunu yazınız. Örnek ekran çıktısı yanda v
 Kelimenin tüm harflerinin büyük olduğunu varsayınız. ASCII değeri A=65)*/
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
@@ -13,6 +14,16 @@ int main()
 
     ptr = ( int *)calloc(26 , sizeof(int));
 
+    if(ptr == NULL)
+    {
+        printf("There are no enough space in the memory.");
+        return 0;
+
+    }
+    else
+    {
+
+    
     printf("Enter a string( all letter have to be upper case ): ");
     fgets( string , sizeof(string) , stdin );
 
@@ -38,6 +49,10 @@ int main()
         }
     }
 
+    free(ptr);
 
     return 0;
+
+    }
+
 }

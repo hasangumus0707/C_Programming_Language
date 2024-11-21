@@ -1,55 +1,49 @@
-/*: Dinamik bellek ayırma yöntemi kullanılarak en büyük sayıyı bulan programı C dilinde yazınız.
-Dizinin boyutunu kullanıcıya sorunuz ve dizinin elemanlarını kullanıcıdan alınız.*/
+/* Dinamik bellek ayırma yöntemi kullanılarak en büyük sayıyı bulan programı C dilinde yazınız.
+Dizinin boyutunu kullanıcıya sorunuz ve dizinin elemanlarını kullanıcıdan alınız. */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int main()
 {
-int size_array, i, max;
-int* array;
+ int size , i , max;
+ int *array;
 
+ printf("Enter size of array:");
+ scanf("%d", &size);
 
-printf("Enter value of array's size:");
-scanf("%d",&size_array);
+ array = ( int * )malloc( size * sizeof( int ) );
 
-array = (int*)malloc(size_array * sizeof(int));
+ if( array == NULL)
+ {
 
-if(array == NULL){
-
-    puts("There is no size in the memory.");
-
-}
-else{
-
-for(i=0 ; i<size_array ; i++){
-
-scanf("%d",array+i);
-
-}
-
-max = *array;
-i = 0;
-
-while(1){
-
- if(i != size_array-1){
-
-    if(*(array+i+1) > *(array+i)){
-
-        max = *(array+i+1);
-    }
-    i++;
- }
- else{
-
-    break;
- }
-}
-
-printf("Max value of the array:%d",max);
-}
-
+    printf("There are no enough space in the memory.");
     return 0;
 
+ }
+ else 
+ {
+    for(i = 0 ; i < size ;  i++)
+    {
+        printf("Enter %d. value: ", i + 1 );
+        scanf("%d", ( array + i ));
+    }
+ }
+
+ max = array[0];
+
+ for( i = 1 ; i < size ; i++)
+ {
+    if( *( array + i) > max )
+    {
+        max = array[i];
+    }
+ }
+
+    printf("The max value is %d", max);
+
+    free(array);
+
+    return 0;
 }
+

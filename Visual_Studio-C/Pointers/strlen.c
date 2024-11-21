@@ -16,7 +16,7 @@ int main()
   printf("Enter a string: ");
 
   scanf("%s", ptr);
-  scanf("%s",string);
+
 
   printf("Length of string: %d" , find_length( ptr ));
 

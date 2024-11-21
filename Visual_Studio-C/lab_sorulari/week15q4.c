@@ -1,26 +1,39 @@
-//Girilen cümleyi tersten yazdırma
+/*Verilen bir sayısı dizisi içerisinde yer alan sayıları pointer kullanarak tersten yazdıran programı
+C dilinde yazınız.  */
 
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
-void reverse_string(char*, int);
+int main()
+{
+    int n , i ;
 
-int main(){
+    printf("Enter size of array: ");
+    scanf("%d", &n);
 
-    char array[100];
-    int length = 0;
-    puts("Enter a string:");
-    fgets(array, sizeof(array), stdin);
-    length = strlen(array);
-    reverse_string(array, length);
+    int *ptr;
+
+    ptr = (int *)malloc(n* sizeof(int));
+
+    if( ptr == NULL)
+    {
+        printf("There is no enough space in memory.");
+        return 0;
+
+    }
+    else
+    {
+        for( i = 0 ;  i < n ; i++)
+        {   
+            printf("Enter %d. number: " , i + 1);
+            scanf("%d", ( ptr + i ));
+        }
+    }
+
+    for( i = n-1 ; i >= 0 ; i-- )
+    {
+        printf("%d", *( ptr + i ));
+    }
 
     return 0;
-}
-
-void reverse_string(char* ptr, int i){
-
-    for( ; *(ptr+i-1) !='\0' ; i--){
-
-     putchar(*(ptr+i-1));
-    }
 }

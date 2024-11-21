@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>  
 
 int main()
 {
@@ -14,24 +15,36 @@ int main()
     struct person_date
     {
         char name[40];
-        int lenght;
+        int length; 
         struct birth_date date;
     };
     
-    struct person_date *ptr;
-    struct person_date person[3] = { "Ali", 180 , { 6 , 5 ,200},
-                                     "Veli" , 185 , { 9 , 12 ,2001},
-                                     "Mahmoud", 190 , {4 , 11 , 2003}};
+ 
+    struct person_date *ptr = (struct person_date*) malloc(3 * sizeof(struct person_date));
 
-    
-    for( i = 0 , ptr = &person[0] ; ptr <= &person[2] ; ptr++ , i++ )
+    if (ptr == NULL) {
+        printf("There are no space in the memory!\n");
+        return 1; 
+
+    for (i = 0; i < 3; i++)
     {
-        printf("Name: %s \n" , ptr->name);
-        printf("Lenght: %d \n", ptr->lenght);
-        printf("Birth Day: %d/%d/%d \n\n\n" , ptr->date.day , ptr->date.month , ptr->date.year);
+        printf("No:%d => Name: ", (i + 1));
+        scanf("%s", (ptr + i)->name);
 
+        printf("\nNo:%d => Length: ", (i + 1));
+        scanf("%d", &(ptr + i)->length); 
+
+        printf("\nNo:%d => Birth Date (day month year): ", (i + 1));
+        scanf("%d%d%d", &(ptr + i)->date.day, &(ptr + i)->date.month, &(ptr + i)->date.year); 
     }
 
-    
+    for (i = 0; i < 3; i++)
+    {
+        printf("Name: %s \n", (ptr + i)->name);
+        printf("Length: %d \n", (ptr + i)->length);
+        printf("Birth Date: %d/%d/%d \n\n\n", (ptr + i)->date.day, (ptr + i)->date.month, (ptr + i)->date.year);
+    }
+
+    free(ptr);  
     return 0;
 }

@@ -14,7 +14,7 @@ int main()
 
      for(i=0 ; i<5 ; i++){
 
-        *(ptr +i) = 5*i;
+        *(ptr +i) = i;
     }  
     
     printf("%d\n", *ptr++); 

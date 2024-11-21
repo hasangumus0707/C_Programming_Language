@@ -44,6 +44,6 @@ void insertionSort( int dizi[] , int n)
     
         dizi[k + 1] = ekle;
 
-        printf("\n hebele: %d \n",k);
+        
     }
 }
