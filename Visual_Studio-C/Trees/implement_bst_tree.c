@@ -14,9 +14,11 @@ struct BinaryTreeNode *searchNode(struct BinaryTreeNode *root, int target);
 struct BinaryTreeNode *insertNode(struct BinaryTreeNode *node, int value);
 struct BinaryTreeNode *findMin(struct BinaryTreeNode *root);
 struct BinaryTreeNode *delete(struct BinaryTreeNode *root, int x);
-void postOrder(struct BinaryTreeNode* root);
-void inOrder(struct BinaryTreeNode* root);
-void preOrder(struct BinaryTreeNode* root);
+void postOrder(struct BinaryTreeNode *root);
+void inOrder(struct BinaryTreeNode *root);
+void preOrder(struct BinaryTreeNode *root);
+int totalNodes(struct BinaryTreeNode *root);
+int countLeaves(struct BinaryTreeNode *root);
 
 int main()
 {
@@ -50,9 +52,12 @@ int main()
     inOrder(root);
     printf("\n");
 
-    struct BinaryTreeNode* temp = delete (root, 70);
+    struct BinaryTreeNode *temp = delete (root, 70);
     printf("After Delete: \n");
     inOrder(root);
+
+    printf("\nTotal Number of Nodes: %d", totalNodes(root));
+    printf("\nTotal Number of Leaves: %d", countLeaves(root));
 
     return 0;
 }
@@ -69,7 +74,7 @@ struct BinaryTreeNode *newNodeCreate(int value)
     }
 
     temp->key = value;
-    temp->right = temp->right = NULL;
+    temp->right = temp->left = NULL;
     return temp;
 }
 
@@ -165,29 +170,63 @@ struct BinaryTreeNode *delete(struct BinaryTreeNode *root, int x)
     return root;
 }
 
-void postOrder(struct BinaryTreeNode* root)
+void postOrder(struct BinaryTreeNode *root)
 {
-    if (root != NULL) {
+    if (root != NULL)
+    {
         postOrder(root->left);
         postOrder(root->right);
         printf(" %d ", root->key);
     }
+    return;
 }
 
-void inOrder(struct BinaryTreeNode* root)
+void inOrder(struct BinaryTreeNode *root)
 {
-    if (root != NULL) {
+    if (root != NULL)
+    {
         inOrder(root->left);
         printf(" %d ", root->key);
         inOrder(root->right);
     }
+    return;
 }
 
-void preOrder(struct BinaryTreeNode* root)
+void preOrder(struct BinaryTreeNode *root)
 {
-    if (root != NULL) {
+    if (root != NULL)
+    {
         printf(" %d ", root->key);
         preOrder(root->left);
         preOrder(root->right);
     }
+    return;
+}
+
+int totalNodes(struct BinaryTreeNode *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+
+    int l = totalNodes(root->left);
+    int r = totalNodes(root->right);
+
+    return 1 + l + r;
+}
+
+int countLeaves(struct BinaryTreeNode *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+
+    if (root->left == NULL && root->right == NULL)
+    {
+        return 1;
+    }
+
+    return countLeaves(root->left) + countLeaves(root->right);
 }
